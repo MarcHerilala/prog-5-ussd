@@ -1,4 +1,4 @@
-import {  createInterface } from "readline";
+import {  createInterface,Completer } from "readline";
 import { menuItems ,subMenus} from "./menu-list";
 
 const rl =createInterface({
