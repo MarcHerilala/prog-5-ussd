@@ -47,5 +47,27 @@ function showMenu() {
   rl.question('\nVotre choix: ', handleInput);
 }
 
+function handleInput(input: string) {
+  input = input.trim();
+  if (inSubMenu) {
+    if (input === '*') {
+      inSubMenu = false;
+      selectedMenu = 0;
+    }
+  } else {
+    if (input === '#') {
+      currentPage = (currentPage + 1) % totalPages;
+    } else if (input === '*') {
+      currentPage = (currentPage - 1 + totalPages) % totalPages;
+    } else {
+      const choice = parseInt(input);
+      if (!isNaN(choice) && subMenus[choice]) {
+        inSubMenu = true;
+        selectedMenu = choice;
+      }
+    }
+  }
+  showMenu();
+}
 
 showMenu();
