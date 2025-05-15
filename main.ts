@@ -1,11 +1,10 @@
-import {  createInterface,Completer } from "readline";
+import {  createInterface} from "readline";
 import { menuItems ,subMenus} from "./menu-list";
 
 const rl =createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
 let currentPage = 0;
 let inSubMenu = false;
 let selectedMenu = 0;
